@@ -1,8 +1,8 @@
-export const getContacts = state => state.phonebook.contacts;
+export const getContacts = state => state.phonebook.contacts.items;
 export const getFilteredContacts = state => {
   const filterLC = state.phonebook.filter.toLocaleLowerCase();
 
-  return state.phonebook.contacts.filter(({ name }) =>
+  return state.phonebook.contacts.items.filter(({ name }) =>
     name.toLowerCase().includes(filterLC)
   );
 };
