@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from 'redux/phonebook/phonebookSlice';
-import { getFilter } from 'redux/selectors';
+import { selectFilter } from 'redux/selectors';
 
 const Filter = () => {
-  const filter = useSelector(getFilter);
+  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
   const handleOnChange = ({ currentTarget }) => {
     dispatch(setFilter(currentTarget.value));

@@ -1,27 +1,28 @@
 import { useDispatch } from 'react-redux';
 import { ListItem } from './ContactListItem.styled';
 import PropTypes from 'prop-types';
-import { delContact } from 'redux/phonebook/phonebookSlice';
+import { deleteContact } from 'redux/operations';
+import { ButtonStyled } from 'components/Button/Button.styled';
 
 const ContactListItem = ({ contact }) => {
-  const { name, number, id } = contact;
+  const { name, phone, id } = contact;
   const dispatch = useDispatch();
   const handleOnClick = id => {
-    dispatch(delContact(id));
+    dispatch(deleteContact(id));
   };
   return (
     <ListItem>
       <span>{name}:</span>
-      <span>{number}</span>
+      <span>{phone}</span>
 
-      <button
+      <ButtonStyled
         type="button"
         onClick={() => {
           handleOnClick(id);
         }}
       >
         Delete
-      </button>
+      </ButtonStyled>
     </ListItem>
   );
 };
@@ -29,7 +30,7 @@ const ContactListItem = ({ contact }) => {
 ContactListItem.propTypes = {
   contact: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
   }),
 };

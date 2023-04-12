@@ -1,5 +1,5 @@
-export const getContacts = state => state.phonebook.contacts.items;
-export const getFilteredContacts = state => {
+export const selectContacts = state => state.phonebook.contacts.items;
+export const selectFilteredContacts = state => {
   const filterLC = state.phonebook.filter.toLocaleLowerCase();
 
   return state.phonebook.contacts.items.filter(({ name }) =>
@@ -7,4 +7,8 @@ export const getFilteredContacts = state => {
   );
 };
 
-export const getFilter = state => state.phonebook.filter;
+export const selectFilter = state => state.phonebook.filter;
+
+export const selectIsLoading = state => state.phonebook.contacts.isLoading;
+
+export const selectError = state => state.phonebook.contacts.error;
