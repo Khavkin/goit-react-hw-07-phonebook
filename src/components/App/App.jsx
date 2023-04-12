@@ -24,7 +24,7 @@ const App = () => {
       <Filter />
       {isLoading && <p>Loadding....</p>}
       {error && <p>Error- {error}</p>}
-      {!isLoading && !error && <ContactList />}
+      <ContactList />
     </MainContainer>
   );
 };
